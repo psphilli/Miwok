@@ -14,20 +14,20 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
         // English / Miwok numbers
         ArrayList<Word> words = new ArrayList<Word>(Arrays.asList(
-                new Word("one", "lutti"),
-                new Word("two", "otiiko"),
-                new Word("three", "tolookosu"),
-                new Word("four", "oyyisa"),
-                new Word("five", "massokka"),
-                new Word("six", "temmokka"),
-                new Word("seven", "kenekaku"),
-                new Word("eight", "kawinta"),
-                new Word("nine", "wo'e"),
-                new Word("ten", "na'aacha")
+                new Word("one", "lutti", R.drawable.number_one),
+                new Word("two", "otiiko", R.drawable.number_two),
+                new Word("three", "tolookosu", R.drawable.number_three),
+                new Word("four", "oyyisa", R.drawable.number_four),
+                new Word("five", "massokka", R.drawable.number_five),
+                new Word("six", "temmokka", R.drawable.number_six),
+                new Word("seven", "kenekaku", R.drawable.number_seven),
+                new Word("eight", "kawinta", R.drawable.number_eight),
+                new Word("nine", "wo'e", R.drawable.number_nine),
+                new Word("ten", "na'aacha", R.drawable.number_ten)
         ));
 
 
@@ -37,11 +37,11 @@ public class NumbersActivity extends AppCompatActivity {
         // simple_list_item_1.xml layout resource defined in the Android framework.
         // This list item layout contains a single {@link TextView}, which the adapter will set to
         // display a single word.
-        WordAdapter itemsAdapter = new WordAdapter(this, words);
+        WordAdapter itemsAdapter = new WordAdapter(this, words, R.color.category_numbers);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // activity_numbers.xml layout file.
+        // word_listyout file.
         ListView listView = (ListView) findViewById(R.id.list);
 //        GridView listView = (GridView) findViewById(R.id.list);
 

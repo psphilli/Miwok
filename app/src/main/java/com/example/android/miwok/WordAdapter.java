@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
     private static final String LOG_TAG = WordAdapter.class.getSimpleName();
 
     private int mColorResourceId;
-
 
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
@@ -51,7 +52,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         // Get the {@link Word} object located at this position in the list
-        Word currentWord = (Word)getItem(position);
+        final Word currentWord = (Word)getItem(position);
 
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.image);

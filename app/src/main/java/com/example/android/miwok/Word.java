@@ -15,7 +15,10 @@ public class Word {
     /** Image resource identifier for the word */
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
-    private static final int NO_IMAGE_PROVIDED = -1;
+    /** Sound resource identifier for the word */
+    private int mAudioResourceId;
+
+    public static final int NO_IMAGE_PROVIDED = -1;
 
     /**
      * Create a new Word object.
@@ -23,10 +26,12 @@ public class Word {
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
+     * @param soundResourceId is the audio sound file for the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int soundResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = soundResourceId;
     }
 
     /**
@@ -36,11 +41,13 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
      * @param imageResourceId is the resource identifier for the image representing the word
+     * @param audioResourceId is the audio sound file for the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -58,10 +65,17 @@ public class Word {
     }
 
     /**
-     * Get the Miwok translation of the word.
+     * Get the Miwok image of the word.
      */
     public int getImageResourceId() {
         return mImageResourceId;
+    }
+
+    /**
+     * Get the Miwok translation audio of the word.
+     */
+    public int getAudioResourceId() {
+        return mAudioResourceId;
     }
 
     /**

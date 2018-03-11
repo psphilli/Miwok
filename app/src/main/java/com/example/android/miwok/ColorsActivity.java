@@ -1,7 +1,10 @@
 package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -17,15 +20,15 @@ public class ColorsActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // English / Miwok colors
-        ArrayList<Word> words = new ArrayList<Word>(Arrays.asList(
-                new Word("red", "weṭeṭṭi", R.drawable.color_red),
-                new Word("green", "chokokki", R.drawable.color_green),
-                new Word("brown", "ṭakaakki", R.drawable.color_brown),
-                new Word("gray", "ṭopoppi", R.drawable.color_gray),
-                new Word("black", "kululli", R.drawable.color_black),
-                new Word("white", "kelelli", R.drawable.color_white),
-                new Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow),
-                new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow)
+        final ArrayList<Word> words = new ArrayList<Word>(Arrays.asList(
+                new Word("red", "weṭeṭṭi", R.drawable.color_red, R.raw.color_red),
+                new Word("green", "chokokki", R.drawable.color_green, R.raw.color_green),
+                new Word("brown", "ṭakaakki", R.drawable.color_brown, R.raw.color_brown),
+                new Word("gray", "ṭopoppi", R.drawable.color_gray, R.raw.color_gray),
+                new Word("black", "kululli", R.drawable.color_black, R.raw.color_black),
+                new Word("white", "kelelli", R.drawable.color_white, R.raw.color_white),
+                new Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow, R.raw.color_dusty_yellow),
+                new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow)
         ));
 
         // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
@@ -45,6 +48,15 @@ public class ColorsActivity extends AppCompatActivity {
         // Do this by calling the setAdapter method on the {@link ListView} object and pass in
         // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
         listView.setAdapter(itemsAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, words.get(position).getAudioResourceId());
+                mediaPlayer.start();
+            }
+        });
+
     }
 
 }

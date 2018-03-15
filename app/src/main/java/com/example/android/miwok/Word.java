@@ -51,6 +51,19 @@ public class Word {
     }
 
     /**
+     * Override of base
+     */
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResourceId=" + mAudioResourceId +
+                '}';
+    }
+
+    /**
      * Get the default translation of the word.
      */
     public String getDefaultTranslation() {

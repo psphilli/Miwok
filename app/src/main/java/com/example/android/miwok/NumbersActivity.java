@@ -65,6 +65,7 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.word_list);
 
         // Create and setup the {@link AudioManager} to request audio focus
@@ -83,8 +84,6 @@ public class NumbersActivity extends AppCompatActivity {
                 new Word("nine", "wo'e", R.drawable.number_nine, R.raw.number_nine),
                 new Word("ten", "na'aacha", R.drawable.number_ten, R.raw.number_ten)
         ));
-
-
 
         // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
         // adapter knows how to create layouts for each item in the list, using the
@@ -150,7 +149,6 @@ public class NumbersActivity extends AppCompatActivity {
         }
 */
     }
-
 
     @Override
     protected void onStop() {
